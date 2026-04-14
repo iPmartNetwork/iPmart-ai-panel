@@ -32,9 +32,10 @@ ask() {
 }
 
 ask_secret() {
+  local v=""
   read -rsp "$1: " v
-  echo
-  echo "$v"
+  printf '\n' >&2
+  printf '%s' "$v"
 }
 
 install_base() {
