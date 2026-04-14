@@ -1,0 +1,23 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: always
+    environment:
+      WEBUI_ADMIN_EMAIL: ${WEBUI_ADMIN_EMAIL}
+      WEBUI_ADMIN_PASSWORD: ${WEBUI_ADMIN_PASSWORD}
+      WEBUI_ADMIN_NAME: ${WEBUI_ADMIN_NAME}
+      ENABLE_SIGNUP: ${ENABLE_SIGNUP}
+      ENABLE_PERSISTENT_CONFIG: ${ENABLE_PERSISTENT_CONFIG}
+      BYPASS_MODEL_ACCESS_CONTROL: ${BYPASS_MODEL_ACCESS_CONTROL}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL}
+      WEBUI_URL: ${WEBUI_URL}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui:/app/backend/data
+    ports:
+      - "127.0.0.1:3000:8080"
+
+volumes:
+  open-webui:

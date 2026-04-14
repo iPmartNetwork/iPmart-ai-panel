@@ -1,0 +1,529 @@
+:root {
+  color-scheme: light;
+
+  --ip-bg: #f4f7f6;
+  --ip-bg-alt: #eef5f1;
+  --ip-surface: #ffffff;
+  --ip-surface-soft: #edf7f1;
+  --ip-surface-soft-2: #f8fbf9;
+  --ip-primary: #19c37d;
+  --ip-primary-hover: #12a86b;
+  --ip-primary-soft: rgba(25, 195, 125, 0.12);
+  --ip-primary-soft-2: rgba(25, 195, 125, 0.18);
+  --ip-border: #bfe9d3;
+  --ip-border-strong: #8fdcb7;
+  --ip-text: #0f172a;
+  --ip-text-soft: #475569;
+  --ip-text-faint: #64748b;
+  --ip-input: #f8fafc;
+  --ip-shadow: 0 20px 60px rgba(25, 195, 125, 0.08);
+  --ip-shadow-lg: 0 24px 80px rgba(25, 195, 125, 0.12);
+  --ip-radius-card: 24px;
+  --ip-radius-btn: 16px;
+  --ip-radius-input: 16px;
+}
+
+html.dark,
+.dark {
+  color-scheme: dark;
+
+  --ip-bg: #031b22;
+  --ip-bg-alt: #04142c;
+  --ip-surface: #071d35;
+  --ip-surface-soft: #0a2442;
+  --ip-surface-soft-2: #0b2038;
+  --ip-primary: #19c37d;
+  --ip-primary-hover: #20d78b;
+  --ip-primary-soft: rgba(25, 195, 125, 0.14);
+  --ip-primary-soft-2: rgba(25, 195, 125, 0.2);
+  --ip-border: #0f766e;
+  --ip-border-strong: #149d8c;
+  --ip-text: #e5eef7;
+  --ip-text-soft: #94a3b8;
+  --ip-text-faint: #7b8ca3;
+  --ip-input: #223553;
+  --ip-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --ip-shadow-lg: 0 28px 90px rgba(0, 0, 0, 0.36);
+}
+
+html {
+  background: var(--ip-bg);
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(25, 195, 125, 0.12), transparent 30%),
+    linear-gradient(180deg, var(--ip-bg) 0%, var(--ip-bg-alt) 100%);
+  color: var(--ip-text);
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+label,
+p,
+span,
+div,
+a {
+  color: var(--ip-text);
+}
+
+::selection {
+  background: var(--ip-primary-soft-2);
+  color: var(--ip-text);
+}
+
+/* Base shell classes if present */
+.app-shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  border-radius: 24px;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo,
+.ipmart-brand-inline-logo {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ip-text);
+}
+
+.brand-subtitle {
+  font-size: 13px;
+  color: var(--ip-text-soft);
+}
+
+.main-content {
+  display: grid;
+  gap: 24px;
+}
+
+.sb-surface {
+  background: color-mix(in srgb, var(--ip-surface) 94%, transparent);
+  border: 1px solid var(--ip-border);
+  box-shadow: var(--ip-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.sb-card {
+  background: color-mix(in srgb, var(--ip-surface) 94%, transparent);
+  border: 1px solid var(--ip-border);
+  border-radius: var(--ip-radius-card);
+  box-shadow: var(--ip-shadow);
+  backdrop-filter: blur(14px);
+  padding: 28px;
+}
+
+.hero-card h1 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--ip-text);
+}
+
+.hero-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ip-text-soft);
+}
+
+/* Generic Open WebUI / Tailwind overrides */
+.bg-white,
+[class*="bg-white/"],
+[class*="bg-slate-50"],
+[class*="bg-slate-100"],
+[class*="bg-zinc-50"] {
+  background-color: var(--ip-surface) !important;
+}
+
+.text-slate-900,
+.text-slate-800,
+.text-slate-950,
+.text-zinc-900,
+.text-gray-900 {
+  color: var(--ip-text) !important;
+}
+
+.text-slate-700,
+.text-slate-600,
+.text-slate-500,
+.text-zinc-600,
+.text-gray-600,
+.text-gray-500 {
+  color: var(--ip-text-soft) !important;
+}
+
+.border-slate-200,
+.border-slate-300,
+.border-gray-200,
+.border-gray-300,
+.border-zinc-200,
+.border-zinc-300,
+.border-emerald-200,
+.border-emerald-300 {
+  border-color: var(--ip-border) !important;
+}
+
+.dark .dark\:bg-slate-900,
+.dark .dark\:bg-slate-950,
+.dark .dark\:bg-zinc-900,
+.dark .dark\:bg-gray-900,
+.dark .dark\:bg-slate-800 {
+  background-color: var(--ip-surface) !important;
+}
+
+.dark .dark\:text-white,
+.dark .dark\:text-slate-100,
+.dark .dark\:text-slate-200,
+.dark .dark\:text-zinc-100,
+.dark .dark\:text-zinc-200 {
+  color: var(--ip-text) !important;
+}
+
+.dark .dark\:text-slate-400,
+.dark .dark\:text-slate-500,
+.dark .dark\:text-zinc-400,
+.dark .dark\:text-zinc-500 {
+  color: var(--ip-text-soft) !important;
+}
+
+.dark .dark\:border-slate-700,
+.dark .dark\:border-slate-800,
+.dark .dark\:border-zinc-700,
+.dark .dark\:border-gray-700 {
+  border-color: var(--ip-border) !important;
+}
+
+/* Buttons */
+.theme-toggle,
+.sb-button-primary {
+  border: 0;
+  border-radius: var(--ip-radius-btn);
+  padding: 12px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  background: var(--ip-surface);
+  color: var(--ip-text);
+  border: 1px solid var(--ip-border);
+}
+
+.sb-button-primary,
+.bg-emerald-500,
+.bg-emerald-600,
+.bg-green-500,
+button[class*="bg-emerald-"],
+a[class*="bg-emerald-"] {
+  background: linear-gradient(180deg, var(--ip-primary), var(--ip-primary-hover)) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 16px 36px rgba(25, 195, 125, 0.24) !important;
+}
+
+.theme-toggle:hover,
+.sb-button-primary:hover,
+.bg-emerald-500:hover,
+.bg-emerald-600:hover,
+.bg-green-500:hover,
+button[class*="bg-emerald-"]:hover,
+a[class*="bg-emerald-"]:hover {
+  transform: translateY(-1px);
+}
+
+.text-emerald-700,
+.text-emerald-600,
+.text-emerald-500,
+.border-emerald-500,
+.border-emerald-600 {
+  color: var(--ip-primary) !important;
+  border-color: var(--ip-primary) !important;
+}
+
+.bg-emerald-50,
+.bg-emerald-100,
+.bg-green-50,
+[class*="bg-emerald-500/10"],
+[class*="bg-emerald-500/15"],
+[class*="bg-emerald-500/20"] {
+  background-color: var(--ip-primary-soft) !important;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  background: var(--ip-input);
+  color: var(--ip-text);
+  border: 1px solid var(--ip-border);
+  border-radius: var(--ip-radius-input);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--ip-text-faint) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--ip-primary) !important;
+  box-shadow: 0 0 0 4px rgba(25, 195, 125, 0.12) !important;
+}
+
+/* Sidebar / nav */
+aside,
+.sidebar,
+[class*="sidebar"],
+nav[class*="w-"] {
+  background: color-mix(in srgb, var(--ip-surface) 92%, transparent) !important;
+  border-right: 1px solid var(--ip-border) !important;
+  backdrop-filter: blur(14px);
+}
+
+.dark aside,
+.dark .sidebar,
+.dark [class*="sidebar"] {
+  background: color-mix(in srgb, var(--ip-surface) 90%, transparent) !important;
+}
+
+/* Active items */
+[aria-current="page"],
+.active,
+[data-active="true"] {
+  background: var(--ip-primary-soft) !important;
+  color: var(--ip-primary) !important;
+  border-color: var(--ip-border-strong) !important;
+}
+
+/* Chat composer */
+textarea,
+[class*="composer"],
+[class*="message-composer"],
+form[class*="composer"] {
+  border-radius: 20px !important;
+}
+
+[class*="composer"],
+[class*="message-composer"],
+form[class*="composer"] {
+  background: color-mix(in srgb, var(--ip-surface) 92%, transparent) !important;
+  border: 1px solid var(--ip-border) !important;
+  box-shadow: var(--ip-shadow);
+}
+
+/* Cards / surfaces */
+.rounded-2xl,
+.rounded-3xl,
+.card,
+.panel,
+[role="article"] {
+  border-radius: var(--ip-radius-card) !important;
+}
+
+/* Tables */
+table {
+  background: transparent;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead th {
+  background: var(--ip-surface-soft) !important;
+  color: var(--ip-text) !important;
+}
+
+td,
+th {
+  border-color: var(--ip-border) !important;
+}
+
+/* Modals and menus */
+[role="dialog"],
+.modal,
+[role="menu"],
+[role="listbox"],
+.dropdown,
+.menu {
+  background: color-mix(in srgb, var(--ip-surface) 96%, transparent) !important;
+  border: 1px solid var(--ip-border) !important;
+  border-radius: 24px !important;
+  box-shadow: var(--ip-shadow-lg) !important;
+  backdrop-filter: blur(14px);
+}
+
+/* Code blocks */
+pre,
+code,
+.hljs {
+  border-radius: 16px !important;
+}
+
+pre,
+.hljs {
+  background: #0b1830 !important;
+  color: #e5eef7 !important;
+  border: 1px solid rgba(37, 99, 235, 0.16) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+code:not(pre code) {
+  background: var(--ip-primary-soft) !important;
+  color: var(--ip-text) !important;
+  padding: 0.2rem 0.45rem;
+  border-radius: 10px;
+}
+
+/* Top bars */
+header,
+.sticky,
+[role="banner"] {
+  backdrop-filter: blur(14px);
+}
+
+/* Floating theme/install buttons injected by JS */
+.ipmart-theme-toggle,
+.ipmart-install-button {
+  position: fixed;
+  right: 16px;
+  z-index: 9999;
+  border-radius: 999px;
+  border: 1px solid rgba(25, 195, 125, 0.24);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.ipmart-theme-toggle {
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  background: color-mix(in srgb, var(--ip-surface) 92%, transparent);
+  color: var(--ip-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ipmart-install-button {
+  bottom: 72px;
+  min-width: 132px;
+  height: 44px;
+  padding: 0 16px;
+  background: linear-gradient(180deg, var(--ip-primary), var(--ip-primary-hover));
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+}
+
+.ipmart-theme-toggle:hover,
+.ipmart-install-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Brand inline wrapper if SVG gets replaced */
+.ipmart-brand-inline {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ip-border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ip-primary), var(--ip-primary-hover));
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topbar-right {
+    justify-content: space-between;
+  }
+
+  .hero-card h1 {
+    font-size: 28px;
+  }
+
+  .ipmart-theme-toggle {
+    width: 44px;
+    height: 44px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .ipmart-install-button {
+    right: 14px;
+    bottom: 64px;
+    height: 42px;
+    min-width: 120px;
+  }
+}
+
+/* Fallback for browsers without color-mix support */
+@supports not (background: color-mix(in srgb, white 90%, black)) {
+  .sb-surface,
+  .sb-card,
+  aside,
+  .sidebar,
+  [class*="sidebar"],
+  [role="dialog"],
+  .modal,
+  [role="menu"],
+  [role="listbox"],
+  .dropdown,
+  .menu,
+  [class*="composer"],
+  [class*="message-composer"] {
+    background: var(--ip-surface) !important;
+  }
+}
